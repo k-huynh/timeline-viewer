@@ -99,7 +99,7 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
     };
 
     const getDayBackgroundColor = (day: number) => {
-        return day % 2 === 0 ? 'bg-gray-50' : 'bg-white';
+        return day % 2 === 0 ? 'bg-gray-100' : 'bg-white';
     };
     
     if (entities.length === 0) {
