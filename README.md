@@ -1,69 +1,32 @@
-# React + TypeScript + Vite
+# Timeline Viewer
+Quick and dirty timeline viewer for events given start day, time, and duration.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
+Reads in a JSON with the following schema:
+```
+{
+	"categoryColours": [
+        {"category": "cat1", "colour": "bg-blue-300"},
+        {"category": "cat2", "colour": "bg-red-300"}
     ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+	"timelines": [
+        {"timelineId": "0", "timeline": [
+			{"id": 1, "entity": "abc", "category": "cat1", "description": "abcd1", "start_day": 0, "start_time": 0, "duration": 60},
+			{"id": 2, "entity": "def", "category": "cat1", "description": "abcd2", "start_day": 0, "start_time": 30, "duration": 70},
+			{"id": 3, "entity": "abc", "category": "cat1", "description": "abcd3", "start_day": 0, "start_time": 60, "duration": 20},
+			{"id": 4, "entity": "abc", "category": "cat1", "description": "abcd4", "start_day": 1, "start_time": 0, "duration": 40},
+	    	{"id": 5, "entity": "def", "category": "cat1", "description": "abcd5", "start_day": 1, "start_time": 20, "duration": 30}
+		]},
+        {"timelineId": "1", "timeline": [
+			{"id": 1, "entity": "abc", "category": "cat1", "description": "abcd1", "start_day": 0, "start_time": 0, "duration": 60},
+			{"id": 2, "entity": "def", "category": "cat1", "description": "abcd2", "start_day": 0, "start_time": 30, "duration": 70},
+			{"id": 3, "entity": "abc", "category": "cat1", "description": "abcd3", "start_day": 1, "start_time": 60, "duration": 20},
+			{"id": 4, "entity": "abc", "category": "cat2", "description": "abcd4", "start_day": 2, "start_time": 0, "duration": 40},
+	    	{"id": 5, "entity": "def", "category": "cat2", "description": "abcd5", "start_day": 1, "start_time": 20, "duration": 30}
+		]}
+    ]
+}
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Does not do any fancy formatting.
+- Partially generated using Claude Sonnet 4, ChatGPT, etc.
