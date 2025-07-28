@@ -110,14 +110,14 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
         );
     }
 
-    const getEventStyle = (event: TimelineItemSchema) => {
+    const getEventColour = (event: TimelineItemSchema) => {
         const categoryColour = categoryColours.find((el) => el.category === event.category)
 
         if (categoryColour) {
-            return `absolute w-6 ${categoryColour.colour} rounded cursor-pointer hover:${categoryColour.colour} transition-color`
+            return categoryColour.colour
         }
         
-        return `absolute w-6 bg-stone-200 rounded cursor-pointer hover:bg-stone-200 transition-colors`
+        return 'oklch(26.8% 0.007 34.298)'
     }
 
     return (
@@ -212,12 +212,13 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
                                                     <HoverCard key={event.id} >
                                                         <HoverCardTrigger asChild>
                                                             <div
-                                                                className={getEventStyle(event)}
+                                                                className="absolute w-6 rounded cursor-pointer transition-color"
                                                                 style={{
                                                                     top: position.top,
                                                                     height: Math.max(position.height, 20),
                                                                     left: '50%',
-                                                                    transform: 'translateX(-50%)'
+                                                                    transform: 'translateX(-50%)',
+                                                                    backgroundColor: getEventColour(event)
                                                                 }}
                                                             />
                                                         </HoverCardTrigger>
