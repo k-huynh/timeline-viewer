@@ -122,7 +122,7 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
 
     return (
         <div className="flex flex-col gap-8">
-            <p className="pl-9">
+            <p className="pl-9 font-bold">
                 {timelineData.timelineId}
             </p>
             <div className="flex">
@@ -224,7 +224,9 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
                                                         </HoverCardTrigger>
                                                         <HoverCardContent className="" side="right">
                                                             <div className="space-y-2">
+                                                                <p className="text-xs text-stone-600">{event.category}</p>
                                                                 <p className="text-sm">{event.description}</p>
+                                                                <p className="text-xs text-stone-600">{event.duration} min</p>
                                                             </div>
                                                         </HoverCardContent>
                                                     </HoverCard>
