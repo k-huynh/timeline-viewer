@@ -215,7 +215,7 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
                                                                 className="absolute w-6 rounded cursor-pointer transition-color"
                                                                 style={{
                                                                     top: position.top,
-                                                                    height: Math.max(position.height, 20),
+                                                                    height: position.height,
                                                                     left: '50%',
                                                                     transform: 'translateX(-50%)',
                                                                     backgroundColor: getEventColour(event)
