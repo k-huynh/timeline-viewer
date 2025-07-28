@@ -222,7 +222,7 @@ export function Timeline({timelineData, zoomLevel, categoryColours}: {timelineDa
                                                                 }}
                                                             />
                                                         </HoverCardTrigger>
-                                                        <HoverCardContent className="w-16" side="right">
+                                                        <HoverCardContent className="" side="right">
                                                             <div className="space-y-2">
                                                                 <p className="text-sm">{event.description}</p>
                                                             </div>
